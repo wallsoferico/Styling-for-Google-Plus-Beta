@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var db = window.localStorage;
+			console.log("stuff");
+			chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
+				if(request.action == "getLocalStorage") {
+					var h;
+					chrome.windows.getCurrent(function (w) { db["height"] = w.height - 210; db["height2"] = w.height - 230; db["width"] = w.height - 400; });
+					sendResponse({status: db});
+				}
+				else
+					sendResponse({});
+			});
+			
+			//Code adapted from Notification Count for Google Plus because I can never get an XMLHttpRequest right
+			//all props for this code go to xTristan for making it
+
+			getUnreadCount();
+			function getUnreadCount() {
+				var xhr = new XMLHttpRequest();
+				var timer = window.setTimeout(function() {xhr.abort();}, 5000);
+
+				try {
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState != 4)
+							return;
+
+						if (xhr.status == 200 && xhr.responseText) {
+							//var count = xhr.responseText.substring(xhr.responseText.indexOf(',')+1);
+							var count = xhr.responseText.substring(xhr.responseText.indexOf(',', xhr.responseText.indexOf(',', xhr.responseText.indexOf(',')+1)+1)+1);
+							console.log(count);
+							updateCount(count.substring(0, count.indexOf(',')));
+							return;
+						}
+
+						updateCount(null);
+					}
+
+					xhr.onerror = function(error) {
+						updateCount(null);
+					}
+
+					xhr.open("GET", "https://plus.google.com/u/0/_/notifications/getunreadcount?inWidget=true&rt=j", true);
+					xhr.send(null); 
+					window.clearTimeout(timer);
+				} catch(e) {
+					updateCount(null);
+				}
+			}
+
+			function updateCount(count) {
+				if (count == null || count.indexOf('-') != "-1")
+					chrome.browserAction.setBadgeText({text:"?"});
+				else {        
+					chrome.browserAction.setBadgeText({text:count});
+				}
+			}
+			//end of adapted code
+			
+			var update = true;
+			
+			chrome.tabs.onUpdated.addListener(function (tid, tab) {
+				if(update == true) {
+					chrome.windows.getCurrent(function(win) {
+						var cwin = win.id;
+						chrome.tabs.getAllInWindow(cwin, function(tabs) {
+							for (var i = 0; i < tabs.length; i++) {	
+								var t = tabs[i].url;
+									if (t == 'https://plus.google.com/') {
+										var tab = tabs[i];
+										if(tid == tab.id) {
+											update = false;
+											chrome.tabs.update(tab.id, {url: tab.url, selected: tab.selected}, null);
+										}
+									}
+							}
+						});
+					});
+				}
+			});
+			
+			setInterval(getUnreadCount, 30000);
+			
+		</script>
+	</head>
+	
+	<body>
+	
+		
+	
+	</body>
+	
+</html>
