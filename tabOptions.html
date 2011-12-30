@@ -1,0 +1,516 @@
+<html>
+	<head>
+		
+		<title>Styling for Google+</title>
+		
+		<link rel="stylesheet" href="tabOptions.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="save.js"> </script>
+		<script type="text/javascript" src="jscolor/jscolor.js"></script>
+		<script type="text/javascript">		
+			function tabSwitch(active, number, tab_prefix, content_prefix) {  
+				for (var i=1; i < number+1; i++) {  
+					document.getElementById(content_prefix+i).style.display = 'none';  
+					document.getElementById(tab_prefix+i).className = '';  
+				}  
+				
+				document.getElementById(content_prefix+active).style.display = 'block';  
+				document.getElementById(tab_prefix+active).className = 'active';      
+			}  
+			
+			function custWideThemeCheck() {
+				
+			}
+			
+			function custThemeCheck() {
+				var heads = document.getElementsByTagName("head");
+				if (heads.length > 0) {
+					var node = document.createElement("style");
+					node.type = "text/css";
+					node.appendChild(chrome.extension.getURL("custThemeCheck.css"));
+					heads[0].appendChild(node);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div class="header">
+			<h1>Styling For Google+ Options</h1>
+		</div>
+	
+		<div id="tabBox" class="tabBox">
+			<div class="tabArea">
+				<ul class="tabs">
+					<li><a href="javascript:tabSwitch(1, 9, 'tab_', 'content_');" id="tab_1" class="active">General</a></li>
+					<li><a href="javascript:tabSwitch(2, 9, 'tab_', 'content_');" id="tab_2">Top Bar</a></li>
+					<li><a href="javascript:tabSwitch(3, 9, 'tab_', 'content_');" id="tab_3">Left Column</a></li>
+					<li><a href="javascript:tabSwitch(4, 9, 'tab_', 'content_');" id="tab_4">Right Column</a></li>
+					<li><a href="javascript:tabSwitch(5, 9, 'tab_', 'content_');" id="tab_5">Center Column</a></li>
+					<li><a href="javascript:tabSwitch(6, 9, 'tab_', 'content_');" id="tab_6">Photos Page</a></li>
+					<li><a href="javascript:tabSwitch(7, 9, 'tab_', 'content_');" id="tab_7">Profile Page</a></li>
+					<li><a href="javascript:tabSwitch(8, 9, 'tab_', 'content_');" id="tab_8">Circles Page</a></li>
+					<li><a href="javascript:tabSwitch(9, 9, 'tab_', 'content_');" id="tab_9">Games Page</a></li>
+					<li><a href="javascript:saveAndRefresh();" id="save">Save and Refresh</a></li>
+				</ul>
+			
+				<div id="content_1" class="content">
+					<h2>Floating</h2>
+				<div>
+					<form name="float">
+						<a class="thumbnail2" href="#">
+							<input type="radio" id="noFloat" name="tofloat" value="noFloat" checked />
+								&nbsp;<label for="noFloat">No Floating Bars</label>
+								<span><img src="/images/noFloat.png" height="500" width="700"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="radio" id="topBar" name="tofloat" value="topBar" />
+								&nbsp;<label for="topBar">Floating Top Bar</label>
+								<span><img src="/images/topFloat.png" height="500" width="700"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="radio" id="slBar" name="tofloat" value="slBar" />
+								&nbsp;<label for="slBar">Floating Left Side Bar</label>
+								<span><img src="/images/leftFloat.png" height="500" width="700"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="radio" id="srBar" name="tofloat" value="srBar" />
+								&nbsp;<label for="srBar">Floating Right Side Bar</label>
+								<span><img src="/images/rightFloat.png" height="500" width="700"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="radio" id="tslBar" name="tofloat" value="tslBar" />
+								&nbsp;<label for="tslBar">Floating Top and Left Side Bar</label>
+								<span><img src="/images/topLeftFloat.png" height="500" width="700"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="radio" id="tsrBar" name="tofloat" value="tsrBar" />
+								&nbsp;<label for="tsrBar">Floating Top and Right Side Bar</label>
+								<span><img src="/images/topRightFloat.png" height="500" width="700"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="radio" id="allBar" name="tofloat" value="allBar" />
+								&nbsp;<label for="allBar">Float All Bars</label>
+								<span><img src="/images/allFloat.png" height="500" width="700"/></span>
+						</a><br />
+					</form>	
+						<input type="checkbox" id="scroll" />
+							&nbsp;<label for="scroll">Thin Scroll Bars</label><br />
+						<input type="checkbox" id="scroll2" />
+							&nbsp;<label for="scroll2">No Scroll Bar</label><br />
+					
+					<h2>Design</h2>
+				<div>
+					<form name="design">
+					<input type="checkbox" id="abgColor" />
+					<label for="abgColor"> Background Color: </label>
+					<input class="color" id="bgColor" /> <br /><br />
+					
+					<a class="thumbnail2" href="#"><input type="checkbox" id="feedback" />
+						&nbsp;<label for="feedback">Hide Send Feedback Box</label>
+						<span><img src="/images/sendFeedback.png" /></span>
+					</a><br />
+					<a class="thumbnail" href="#"><input type="checkbox" id="custTheme" />
+						&nbsp;<label for="custTheme">Use Custom Theme</label>
+						<span><img src="/images/customTheme.png" height="500" width="700"/></span>
+					</a><br />
+					<a class="thumbnail" href="#"><input type="checkbox" id="custWideTheme"/>
+						&nbsp;<label for="custWideTheme">Use Custom Wide Theme BETA(makes Stream wider better for higher resolution screens)</label>
+						<span><img src="/images/customWideTheme.png" height="500" width="700"/></span>
+					</a><br />
+					</form>
+				</div>
+				</div>
+				</div>
+				<div id="content_2" class="content">
+					<h2>Top Bar</h2>
+					<div>
+						<form name="top">
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="uname" />
+								&nbsp;<label for="uname">Hide User Name</label>
+								<span><img src="/images/navBarName.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="gmail" />
+								&nbsp;<label for="gmail">Hide Gmail Link</label>
+								<span><img src="/images/navBarGmail.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="cal" />
+								&nbsp;<label for="cal">Hide Calendar Link</label>
+								<span><img src="/images/navBarCal.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="docs" />
+								&nbsp;<label for="docs">Hide Documents Link</label>
+								<span><img src="/images/navBarDocs.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="photos" />
+								&nbsp;<label for="photos">Hide Photos Link</label>
+								<span><img src="/images/navBarPhotos.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="images" />
+								&nbsp;<label for="images">Hide Images Link</label>
+								<span><img src="/images/navBarImages.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="videos" />
+								&nbsp;<label for="videos">Hide Videos Link</label>
+								<span><img src="/images/navBarVideos.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="reader" />
+								&nbsp;<label for="reader">Hide Reader Link</label>
+								<span><img src="/images/navBarReader.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="map" />
+								&nbsp;<label for="map">Hide Map Link</label>
+								<span><img src="/images/navBarMaps.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="news" />
+								&nbsp;<label for="news">Hide News Link</label>
+								<span><img src="/images/navBarNews.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="shopping" />
+								&nbsp;<label for="shopping">Hide Shopping Link</label>
+								<span><img src="/images/navBarShop.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="web" />
+								&nbsp;<label for="web">Hide Web Link</label>
+								<span><img src="/images/navBarWeb.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="more" />
+								&nbsp;<label for="more">Hide More Link (includes the dropdown menu)</label>
+								<span><img src="/images/navBarMore.png"/></span>
+						</a><br /><br />
+						
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="showGCount" />
+								&nbsp;<label for="showGCount">Show Gmail Unread Counter ** Should work with most versions of Chrome **</label>
+								<span><img src="/images/navBarGmail.png"/></span>
+						</a><br />
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="showRCount" />
+								&nbsp;<label for="showRCount">Show Unread Reader Counter ** Should work with most versions of Chrome **</label>
+								<span><img src="/images/navBarReader.png"/></span>
+						</a><br /><br />
+							
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="anavbgColor" />
+								<label for="anavbgColor">Set Nav Bar Background Color: </label> 
+								<span><img src="/images/navBarHome.png" width="1000"/></span>
+						</a>
+							<input class="color" id="navbgColor"/> <br />
+						
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="anavtColor" />
+							<label for="anavtColor">Set Nav Bar Text Color: </label>
+							<span><img src="/images/navBarNavHome.png" width="1000"/></span>
+						</a>
+							<input class="color" id="navtColor" /> <br /><br />
+						
+						<a class="thumbnail3" href="#">
+							<input type="checkbox" id="agpnavColor" />
+							<label for="agpnavColor">Set Google+ Navigation Color: </label>
+							<span><img src="/images/navBarGoogleHome.png" width="1000"/></span>
+						</a>
+							<input class="color" id="gpnavColor" /> <br /><br />
+						
+					</div>
+				</div>
+				<div id="content_3" class="content">
+					<h2>Left Column</h2>
+					<div>
+						<form name="left">
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="pPic" />
+								&nbsp;<label for="pPic" title="">Hide Profile Picture</label>
+								<span><img src="/images/lcppicHome.png" /></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="pName" />
+								&nbsp;<label for="pName">Hide Profile Name</label>
+								<span><img src="/images/lcpnameHome.png" /></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="welcome" />
+								&nbsp;<label for="welcome">Hide Welcome Link</label>
+								<span><img src="/images/lcwelcomeHome.png" /></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="stream" />
+								&nbsp;<label for="stream">Hide Entire Stream</label>
+								<span><img src="/images/lcstreamHome.png"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="incoming" />
+								&nbsp;<label for="incoming">Hide Incoming Link in Stream</label>
+								<span><img src="/images/lcincomingHome.png" /></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="notif" />
+								&nbsp;<label for="notif">Hide Notifications Link in Stream</label>
+								<span><img src="/images/lcnotifHome.png" /></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="sparks" />
+								&nbsp;<label for="sparks">Hide Sparks</label>
+								<span><img src="/images/lcsparksHome.png"/></span>
+						</a><br />
+						<a class="thumbnail2" href="#">
+							<input type="checkbox" id="chat" />
+								&nbsp;<label for="chat">Hide Chat</label>
+								<span><img src="/images/lcchatHome.png" /></span>
+						</a><br /><br />
+						</form>
+						
+						<a class="thumbnail" href="#">
+							<input type="checkbox" id="alcColor" />
+								<label for="alcColor">Left Column Background Color: </label>
+								<span><img src="/images/leftColumnHome.png" /></span>
+						</a>
+							<input class="color" id="lcColor" /><br />
+						
+						<a class="thumbnail" href="#">
+							<input type="checkbox" id="alcTTColor" />
+							<label for="alcTTColor">Left Column Header Colors (User Name, Welcome, Sparks, Stream): </label>
+							<span><img src="/images/lcheaderTextHome.png" /></span>
+						</a>
+							<input class="color" id="lcTTColor" /> <br />
+						
+						<a class="thumbnail" href="#">
+							<input type="checkbox" id="alcTColor" />
+							<label for="alcTColor">Left Column Text Color: </label>
+							<span><img src="/images/lcTextHome.png" /></span>
+						</a>
+							<input class="color" id="lcTColor" /> <br /><br />
+						
+					</div>
+				</div>
+				<div id="content_4" class="content">
+					<h2>Right Column</h2>
+					<div>
+						<form name="right">
+							<a class="thumbnail2" href="#">
+								<input type="checkbox" id="inCircs" />
+									&nbsp;<label for="inCircs">Hide "In your circles"</label>
+									<span><img src="/images/rcCircsHome.png" /></span>
+							</a><br />
+							<a class="thumbnail2" href="#">
+								<input type="checkbox" id="suggest" />
+									&nbsp;<label for="suggest">Hide Suggestions</label>
+									<span><img src="/images/rcSuggestHome.png" /></span>
+							</a><br />
+							<a class="thumbnail2" href="#">
+								<input type="checkbox" id="hTitle" />
+									&nbsp;<label for="hTitle">Hide Hangouts Title</label>
+									<span><img src="/images/rchangTitleHome.png" /></span>
+							</a><br />
+							<a class="thumbnail2" href="#">
+								<input type="checkbox" id="hText" />
+									&nbsp;<label for="hText">Hide Hangouts Text</label>
+									<span><img src="/images/rchangTextHome.png" /></span>
+							</a><br />
+							<a class="thumbnail2" href="#">
+								<input type="checkbox" id="hButton" />
+									&nbsp;<label for="hButton">Hide Hangouts Button</label>
+									<span><img src="/images/rchangButtonHome.png" /></span>
+							</a><br />
+									
+								<input type="checkbox" id="mobile" />
+									&nbsp;<label for="mobile">Hide Go Mobile (removes Invites Title Text too)</label><br /> 
+							<a class="thumbnail2" href="#">
+								<input type="checkbox" id="invites" />
+									&nbsp;<label for="invites">Hide Invites (removes Go Mobile Title Text too)</label>
+									<span><img src="/images/rcInvitesHome.png" /></span>
+							</a><br />
+						</form>
+						<a class="thumbnail" href="#">
+							<input type="checkbox" id="arcColor" />
+							<label for="arcColor">Right Column Background Color: </label> 
+							<span><img src="/images/rightColumnHome.png" /></span>
+						</a>
+							<input class="color" id="rcColor" /><br />
+						<a class="thumbnail" href="#">
+							<input type="checkbox" id="arcTTColor" />
+							<label for="arcTTColor">Right Column Header Colors (User Name, Welcome, Sparks, Stream): </label> 
+							<span><img src="/images/rcHeaderTextHome.png" /></span>
+						</a>
+							<input class="color" id="rcTTColor" /><br />
+						<a class="thumbnail" href="#">
+							<input type="checkbox" id="arcTColor" />
+							<label for="arcTColor">Right Column Text Color: </label> 
+							<span><img src="/images/rcTextHome.png" /></span>
+						</a>
+							<input class="color" id="rcTColor" /><br /><br />
+					
+					</div>
+				</div>
+				<div id="content_5" class="content">
+					<h2>Center Column</h2>
+				
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="acColor" />
+						<label for="acColor">Center Column Background Color:</label>
+						<span><img src="/images/centerColumnColors.png" /></span>
+					</a>
+						<input class="color" id="cColor" /> <br />
+					
+					<br />
+					<b>
+					!!!!!!!!!! These Colors also effect your Profile Page and Games Page !!!!!!!!!!
+					</b>
+					<br />
+					<br />
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="accLColor" />
+						<label for="accLColor">Center Column Link Colors:</label>
+						<span><img src="/images/centerColumnLinkColors.png" /></span>
+					</a>
+						<input class="color" id="ccLColor" /> <br />					
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="accCColor" ></input>
+						<label for="accCColor">Center Column Comment Colors:</label>
+						<span><img src="/images/centerColumnCommentColors.png" /></span>
+					</a>
+						<input class="color" id="ccCColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="accTTColor" />
+						<label for="accTTColor">Center Column Title Colors (Username, Time of Post, View):</label>
+						<span><img src="/images/centerColumnTitleColors.png" /></span>
+					</a>
+						<input class="color" id="ccTTColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="accTColor" />
+						<label for="accTColor">Center Column Text Colors (what users post):	</label>
+						<span><img src="/images/centerColumnTextColors.png" /></span>
+					</a>
+						<input class="color" id="ccTColor" /> <br /> <br />
+					
+				</div>
+				<div id="content_6" class="content">
+					<div>
+					<h2>Photos Page</h2>
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aphlcColor" />
+						<label for="aphlcColor">Photos Left Column Background Color: </label>
+						<span><img src="/images/photoslcColors.png" /></span>
+					</a>
+						<input class="color" id="phlcColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aphccColor" />
+						<label for="aphccColor">Photos Center Column Background Color:</label>
+						<span><img src="/images/photosCenterColors.png" /></span>
+					</a>
+						<input class="color" id="phccColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aphtColor" />
+						<label for="aphtColor">Photos Text Color </label>
+						<span><img src="/images/photosTextColors.png" /></span>
+					</a>
+						<input class="color" id="phtColor" /> <br />
+
+					<input type="checkbox" id="aphhovColor" />
+					<label for="aphhovColor">Photos Left Column Link Hover Color: </label>
+					<input class="color" id="phhovColor" /> <br /><br />
+					
+					</div>
+				</div>
+				<div id="content_7" class="content">
+					<h2>Profile Page</h2>
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aplcColor" />
+						<label for="aplcColor">Left Column Background Color: </label>
+						<span><img src="/images/profilelcColors.png" /></span>
+					</a>
+						<input class="color" id="plcColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aplctColor" />
+						<label for="aplctColor">Left Column Text Color:</label>
+						<span><img src="/images/profilelcTextColors.png" /></span>
+					</a>
+						<input class="color" id="plctColor" /> <br ><br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aprcColor" />
+						<label for="aprcColor">Right Column Background Color: </label>
+						<span><img src="/images/profilercColors.png" /></span>
+					</a>
+						<input class="color" id="prcColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aprcTTColor" />
+						<label for="aprcTTColor">Right Column Title Color:</label>
+						<span><img src="/images/profilerctitleColors.png" /></span>
+					</a>
+						<input class="color" id="prcTTColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="aprcntColor" />
+						<label for="aprcntColor">Right Column Nav Text Color: </label>
+						<span><img src="/images/profilercnavColors.png" /></span>
+					</a>
+						<input class="color" id="prcntColor" /> <br />
+					
+				
+				</div>
+				<div id="content_8" class="content">
+					<h2>Circles Page</h2>
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="acbgColor" />
+						<label for="acbgColor">Circles Background-Color:</label>
+						<span><img src="/images/circlesbgColors.png" /></span>
+					</a>
+						<input class="color" id="cbgColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="actColor" />
+						<label for="actColor">Circles Text Color:</label>
+						<span><img src="/images/circlestextColors.png" /></span>
+					</a>
+						<input class="color" id="ctColor" /> <br />
+				</div>
+				<div id="content_9" class="content">
+					<h2>Games Page</h2>
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="agbgColor" />
+						<label for="agbgColor">Games Background-Color: </label>
+						<span><img src="/images/gamesbgColors.png" /></span>
+					</a>
+						<input class="color" id="gbgColor" /> <br />
+					
+					<a class="thumbnail2" href="#">
+						<input type="checkbox" id="agtColor" />
+						<label for="agtColor">Games Text Color: </label>
+						<span><img src="/images/gamestextColors.png" /></span>
+					</a>
+						<input class="color" id="gtColor" /> <br /><br />
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<h3>by <a href="http://www.egs-development.com/">EGS Development</a></h3>
+		</div>
+		
+		<script type="text/javascript" src="setOptions.js"></script>
+	</body>
+</html>
