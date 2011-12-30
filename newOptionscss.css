@@ -1,0 +1,307 @@
+::-webkit-scrollbar {width: 0px;}
+
+body {
+	background-color: black;
+}
+#header {
+	color: white;
+	margin: 0 auto;
+	width:400px;
+	margin-top: 0px;
+}
+
+#wrap {
+    width:1250px;
+    height:620px;
+    background:#fff;
+    position:relative;
+    margin:0 auto;
+}
+#icons {
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+
+#topBar {
+	position:absolute;
+	width: 100%;
+	height: 300px;
+	top: 0px;
+}
+.nav:hover {
+	height: 100px;
+	width: 60px !important;
+}
+
+.nav .remove {
+	top: 30px !important;
+	left: 0px !important;
+}
+.nav .edit {
+	top: 28px !important;
+	left: 30px !important;
+}
+#navName {
+	position: absolute !important;
+}
+#navGmail {
+	left:30px;
+	position: absolute !important;
+}
+#navCal {
+	left: 60px;
+	position: absolute !important;
+}
+#navDocs {
+	left: 100px;
+	position: absolute !important;
+}
+#navPhotos {
+	left: 150px;
+	position: absolute !important;
+}
+#navImages {
+	left: 190px;
+	position: absolute !important;
+}
+#navVideos {
+	left: 220px;
+	position: absolute !important;
+}
+#navReader {
+	left: 255px;
+	position: absolute !important;
+}
+#navMaps {
+	left: 290px;
+	position: absolute !important;
+}
+#navNews {
+	left: 320px;
+	position: absolute !important;
+}
+#navShopping {
+	left: 350px;
+	position: absolute !important;
+}
+#navWeb {
+	left: 400px;
+	position: absolute !important;
+}
+#navMore {
+	left: 430px;
+	position: absolute !important;
+}
+#leftColumn{
+    position:absolute;
+    left:300px;
+    top:60px;
+	z-index:1000;
+}
+#rightColumn {
+    position:absolute;
+    left:810px;
+    top:60px;
+}
+#middleColumn {
+	position: absolute;
+	left: 431px;
+	top: 115px;
+}
+#comments {
+	width: 360px !important;
+}
+#comments .edit {
+	left: 361px !important;
+	z-index: 2000;
+}
+#comments:hover {
+	width: 600px !important;
+}
+#icons div div {
+    position:relative;
+    overflow:hidden;
+    width:130px;
+}
+
+#icons div:hover {
+    width:162px;
+}
+#icons div.hidden, #icons div.hidden:hover {
+    width:130px;
+    height:10px ;
+    background:#ccc;
+	opacity:0.4;
+	border: 1px solid #EEE;
+}
+
+#icons div.hidden img{
+    display:none;
+}
+
+#icons .edit, #icons .remove {
+    position:absolute;
+    display:block;
+    left:130px;
+}
+
+#icons .edit{top:0}
+#icons .remove {top:32px}
+#proPicName {
+	position: relative;
+	height: 64px;
+	width: 175px !important;
+}
+#proPic {
+    height:64px;
+	width: 60px !important;
+}
+#proPic:hover {
+	width: 130px !important;
+}
+#proPic .edit {
+	left: 70px !important;
+	z-index: 4000;
+}
+#proPic .remove {
+	left: 70px !important;
+	z-index: 4000;
+}
+#proName {
+	position: absolute !important;
+	width: 60px !important;
+	left: 70px;
+	top: 0px;
+}
+#proName:hover {
+	width: 130px !important; 
+}
+#proName .edit,  #proName .remove {
+	left: 70px;
+}
+#streamPic {
+    height:120px;
+}
+#streamIncom {
+	height: 30px;
+}
+#streamIncom.hidden {
+	margin-top: 5px;
+	bottom: 10px;
+}
+#streamNotif {
+	height: 30px;
+	top: -10px;
+	margin-bottom: -20px;
+}
+#streamNotif.hidden {
+	margin-bottom: 0px;
+}
+#sparksPic {
+    height:116px;
+}
+#chatPic{
+    height:200px;
+}
+#circsPic {
+    height:100px;
+}
+#suggPic {
+    height:86px;
+}
+#invitesPic {
+    height:64px;
+}
+#mobilePic {
+    height:64px;
+}
+#hangoutText {
+	height: 30px;
+}
+
+#feedback {
+	position: absolute;
+	left: 1186px;
+	top: 600px;
+	height: 20px;
+}
+#feedback .remove {
+	left: 0px !important;
+}
+#feedback .edit {
+	top: 30px;
+	left: 30px !important;
+}
+#feedback:hover {
+	height: 100px;
+	width: 60px !important;
+}
+#feedback.hidden, #feedback.hidden:hover {
+	width: 60px !important;
+	height: 18px !important;
+	opacity: 0.8 !important;
+}
+
+#hangoutText:hover, #hangoutTitle:hover, #hangoutButton:hover,
+#streamIncom:hover, #streamNotif:hover {
+	width: 200px !important;
+	height: 30px;
+}
+#hangoutText .edit, #hangoutTitle .edit, #hangoutButton .edit,
+#streamIncom .edit, #streamNotif .edit {
+	top: 0px !important;
+	left: 130px !important;
+}
+#hangoutText .remove, #hangoutTitle .remove, #hangoutButton .remove,
+#streamIncom .remove, #streamNotif .remove {
+	top: 0px !important;
+	left: 160px !important;
+}
+
+.black_overlay{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	opacity:0.0;
+}
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	border: 10px solid #AAA;
+	border-radius: 8px;
+	background-color: white;
+	z-index:1002;
+	overflow: auto;
+}
+#T, #TT {
+	position: absolute;
+	display: none;
+	z-index: 2000;
+}
+#save a {
+	margin-left: 166px;
+	color: white;
+}
+#footer, #footer a{
+	width: 175px;
+	margin: 0 auto;
+	color: white;
+	text-decoration:none;
+}
+#scroll {
+	color: white;
+	text-align: center;
+}
