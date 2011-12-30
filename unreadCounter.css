@@ -1,0 +1,7 @@
+#headerID {
+	height: 30px; 
+	width: 100%; 
+	color: yellow !important; 
+	border-bottom: 1px dotted black;
+	background-color: blue !important;
+}
